@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Builder
 @Data
 @Entity
@@ -18,4 +21,7 @@ public class Client {
     private String lastName;
     private String phone;
     private String address;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Animal> animalList = new ArrayList<>();
 }

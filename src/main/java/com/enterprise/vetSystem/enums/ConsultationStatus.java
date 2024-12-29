@@ -1,4 +1,4 @@
-package com.enterprise.vetSystem.enums.Animal;
+package com.enterprise.vetSystem.enums;
 
 public enum ConsultationStatus {
     SCHEDULED,
