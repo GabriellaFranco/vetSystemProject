@@ -5,11 +5,10 @@ import com.enterprise.vetSystem.model.Client;
 import com.enterprise.vetSystem.model.Consultation;
 import com.enterprise.vetSystem.model.Veterinarian;
 import com.enterprise.vetSystem.model.dtos.ConsultClientDto;
-import lombok.Builder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserMapper {
+public class ClientMapper {
 
     public ConsultClientDto clientToConsultClientDto (Client client) {
         return ConsultClientDto.builder()
@@ -19,6 +18,7 @@ public class UserMapper {
                 .phone(client.getPhone())
                 .address(client.getAddress())
                 .animalList(client.getAnimalList().stream().map(this::mapAnimalDto).toList())
+                .consultationList(client.getConsultationsList().stream().map(this::mapConsultationsDto).toList())
                 .build();
     }
 
@@ -26,10 +26,10 @@ public class UserMapper {
         return ConsultClientDto.AnimalDto.builder()
                 .id(animal.getId())
                 .name(animal.getName())
+                .age(animal.getAge())
                 .species(animal.getSpecies())
                 .breed(animal.getBreed())
                 .gender(animal.getGender())
-                .consultations(animal.getConsultations().stream().map(this::mapConsultationsDto).toList())
                 .build();
 
     }

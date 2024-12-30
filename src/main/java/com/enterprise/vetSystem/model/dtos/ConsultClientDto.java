@@ -5,9 +5,8 @@ import com.enterprise.vetSystem.enums.Gender;
 import com.enterprise.vetSystem.enums.Specialization;
 import com.enterprise.vetSystem.enums.Species;
 import lombok.Builder;
-import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Builder
@@ -17,7 +16,8 @@ public record ConsultClientDto(
         String lastName,
         String phone,
         String address,
-        List<AnimalDto> animalList
+        List<AnimalDto> animalList,
+        List<ConsultationDto> consultationList
 ) {
 
     @Builder
@@ -26,15 +26,14 @@ public record ConsultClientDto(
             String name,
             Species species,
             String breed,
-            int age,
-            Gender gender,
-            List<ConsultationDto> consultations
+            Integer age,
+            Gender gender
     ) {}
 
     @Builder
     public record ConsultationDto(
             Long id,
-            Date dateAndTime,
+            LocalDate dateAndTime,
             String description,
             ConsultationStatus status,
             AnimalDto animal,
