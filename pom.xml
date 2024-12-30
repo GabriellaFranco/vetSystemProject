@@ -55,7 +55,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -66,7 +65,8 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.3	0</version>
+							<version>1.18.30</version>
+							<scope>provided</scope>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -79,6 +79,8 @@
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>1.18.30</version>
+							<scope>provided</scope>
 						</exclude>
 					</excludes>
 				</configuration>
