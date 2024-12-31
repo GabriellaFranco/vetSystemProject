@@ -24,6 +24,7 @@ public class Veterinarian {
     private Long id;
     private String name;
     private String crv;
+    @Enumerated(EnumType.STRING)
     private Specialization specialization;
 
     @OneToMany(mappedBy = "veterinarian", cascade = CascadeType.ALL)

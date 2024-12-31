@@ -23,9 +23,11 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Enumerated(EnumType.STRING)
     private Species species;
     private String breed;
     private Integer age;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private Boolean isCastrated;
 

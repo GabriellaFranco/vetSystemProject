@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Builder
-public record ConsultClientDto(
+public record ConsultAllClientsDto(
         Long id,
         String firstName,
         String lastName,

@@ -22,6 +22,7 @@ public class Consultation {
     private Long id;
     private LocalDate dateAndTime;
     private String description;
+    @Enumerated(EnumType.STRING)
     private ConsultationStatus status;
 
     @ManyToOne

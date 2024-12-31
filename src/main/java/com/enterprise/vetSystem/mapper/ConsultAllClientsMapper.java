@@ -4,14 +4,14 @@ import com.enterprise.vetSystem.model.Animal;
 import com.enterprise.vetSystem.model.Client;
 import com.enterprise.vetSystem.model.Consultation;
 import com.enterprise.vetSystem.model.Veterinarian;
-import com.enterprise.vetSystem.model.dtos.ConsultClientDto;
+import com.enterprise.vetSystem.model.dtos.ConsultAllClientsDto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClientMapper {
+public class ConsultAllClientsMapper {
 
-    public ConsultClientDto clientToConsultClientDto (Client client) {
-        return ConsultClientDto.builder()
+    public ConsultAllClientsDto clientToConsultClientDto (Client client) {
+        return ConsultAllClientsDto.builder()
                 .id(client.getId())
                 .firstName(client.getFirstName())
                 .lastName(client.getLastName())
@@ -22,8 +22,8 @@ public class ClientMapper {
                 .build();
     }
 
-    private ConsultClientDto.AnimalDto mapAnimalDto(Animal animal) {
-        return ConsultClientDto.AnimalDto.builder()
+    private ConsultAllClientsDto.AnimalDto mapAnimalDto(Animal animal) {
+        return ConsultAllClientsDto.AnimalDto.builder()
                 .id(animal.getId())
                 .name(animal.getName())
                 .age(animal.getAge())
@@ -34,8 +34,8 @@ public class ClientMapper {
 
     }
 
-    private ConsultClientDto.ConsultationDto mapConsultationsDto(Consultation consultation) {
-        return ConsultClientDto.ConsultationDto.builder()
+    private ConsultAllClientsDto.ConsultationDto mapConsultationsDto(Consultation consultation) {
+        return ConsultAllClientsDto.ConsultationDto.builder()
                 .id(consultation.getId())
                 .dateAndTime(consultation.getDateAndTime())
                 .description(consultation.getDescription())
@@ -46,8 +46,8 @@ public class ClientMapper {
 
     }
 
-    private ConsultClientDto.VeterinarianDto mapVeterinarianDto(Veterinarian veterinarian) {
-        return ConsultClientDto.VeterinarianDto.builder()
+    private ConsultAllClientsDto.VeterinarianDto mapVeterinarianDto(Veterinarian veterinarian) {
+        return ConsultAllClientsDto.VeterinarianDto.builder()
                 .id(veterinarian.getId())
                 .name(veterinarian.getName())
                 .crv(veterinarian.getCrv())
