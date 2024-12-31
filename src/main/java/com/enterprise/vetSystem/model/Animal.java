@@ -35,7 +35,7 @@ public class Animal {
     @JoinColumn(name = "client_id")
     private Client owner;
 
-    @OneToMany (mappedBy = "animal", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (mappedBy = "animal", cascade = CascadeType.ALL)
     private List<Consultation> consultations = new ArrayList<>();
 
 
