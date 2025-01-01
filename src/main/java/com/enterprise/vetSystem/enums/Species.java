@@ -9,4 +9,7 @@ public enum Species {
     REPTILE,
     BIRD,
     WILD_ANIMAL;
+    
 }
+
+
