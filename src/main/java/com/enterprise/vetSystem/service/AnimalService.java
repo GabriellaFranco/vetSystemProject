@@ -3,6 +3,7 @@ package com.enterprise.vetSystem.service;
 import com.enterprise.vetSystem.enums.Species;
 import com.enterprise.vetSystem.mapper.ConsultAllAnimalsMapper;
 import com.enterprise.vetSystem.model.dtos.ConsultAllAnimalsDto;
+import com.enterprise.vetSystem.model.dtos.ConsultAllClientsDto;
 import com.enterprise.vetSystem.model.dtos.ConsultAnimalByNameDto;
 import com.enterprise.vetSystem.repository.AnimalRepository;
 import com.enterprise.vetSystem.service.exception.ResourceNotFoundException;
@@ -43,13 +44,24 @@ public class AnimalService {
                         .build()).toList();
     }
 
-    public List<ConsultAnimalBySpeciesDto> consultAnimalBySpecies(String species) {
-        return repository.findBySpeciesIgnoreCase(species).stream()
-                .map(animal -> ConsultAnimalBySpeciesDto.builder()
-                        .id(animal.getId())
-                        .species(animal.getSpecies())
-                        .breed(animal.getBreed())
-                        .build()).toList();
-    }
+    public List<ConsultAnimalByNameDto> consultAnimalBySpecies(String species) {
+        if (!isValidSpecies(species)) {
+            throw new ResourceNotFoundException(species);
+        }
+            return repository.findBySpeciesIgnoreCase(species).stream()
+                    .map(animal -> ConsultAnimalByNameDto.builder()
+                            .id(animal.getId())
+                            .species(animal.getSpecies())
+                            .breed(animal.getBreed())
+                            .build()).toList();
+        }
 
+    private boolean isValidSpecies(String species) {
+        try {
+            Species.valueOf(species.toUpperCase());
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
 }
