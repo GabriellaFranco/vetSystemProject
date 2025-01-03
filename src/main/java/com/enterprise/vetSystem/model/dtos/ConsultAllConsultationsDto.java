@@ -17,8 +17,8 @@ public record ConsultAllConsultationsDto(
         String description,
         ConsultationStatus status,
         LocalDate dateAndTime,
-        AnimalDto animal,
         Long clientId,
+        AnimalDto animal,
         VeterinarianDto veterinarian
 ) {
     @Builder

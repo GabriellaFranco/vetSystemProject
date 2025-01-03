@@ -4,7 +4,9 @@ import com.enterprise.vetSystem.model.Animal;
 import com.enterprise.vetSystem.model.Consultation;
 import com.enterprise.vetSystem.model.Veterinarian;
 import com.enterprise.vetSystem.model.dtos.ConsultAllConsultationsDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ConsultAllConsultationsMapper {
 
     public ConsultAllConsultationsDto consultationToConsultAllConsultationsDto(Consultation consultation) {
@@ -13,8 +15,8 @@ public class ConsultAllConsultationsMapper {
                 .description(consultation.getDescription())
                 .status(consultation.getStatus())
                 .dateAndTime(consultation.getDateAndTime())
-                .animal(this.mapAnimalConsultAllConsultationsDto(consultation.getAnimal()))
                 .clientId(consultation.getClient().getId())
+                .animal(this.mapAnimalConsultAllConsultationsDto(consultation.getAnimal()))
                 .veterinarian(this.mapVeterinarianConsultAllConsultationsDto(consultation.getVeterinarian()))
                 .build();
     }
